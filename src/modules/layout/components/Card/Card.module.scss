@@ -1,0 +1,70 @@
+.card {
+  width: 320px;
+  height: 444px;
+  background-color: #211799;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 14px;
+  box-shadow: -3px -3px 3px 0 rgba(#26e6f7, 0.6), 3px 3px 3px 0 rgba(#f759e4, 0.6), 0 0 6px 2px rgba(#ffe759, 0.6),
+  0 35px 25px -15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px 10px;
+}
+
+.card > span {
+  position: relative;
+  top: 45%;
+}
+
+.card:before,
+.card:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: linear-gradient(
+                  115deg,
+                  transparent 0%,
+                  rgb(0, 231, 255) 30%,
+                  rgb(255, 0, 231) 70%,
+                  transparent 100%
+  );
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  animation: holoGradient 15s ease infinite;
+}
+.card:after {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+  background-position: center;
+  background-size: 180%;
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  z-index: 2;
+  animation: holoSparkle 20s ease infinite;
+}
+
+.card.active:before {
+  opacity: 0.5;
+  animation: none;
+  transition: none;
+  background-image: linear-gradient(
+                  115deg,
+                  transparent 0%,
+                  transparent 25%,
+                  rgb(0, 231, 255) 45%,
+                  rgb(255, 0, 231) 55%,
+                  transparent 70%,
+                  transparent 100%
+  );
+}
