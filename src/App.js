@@ -6,8 +6,6 @@ import styles from './App.module.scss';
 import RandomCardPage from './modules/randomCard/components/page'
 
 function App () {
-    console.log( styles );
-
     return (
         <div className={styles.app}>
             <Router>

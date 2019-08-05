@@ -17,8 +17,7 @@
     top: 45%;
   }
 
-  &:before, &:after {
-    content: "";
+  .sparkles, .gradient {
     position: absolute;
     left: 0;
     right: 0;
@@ -41,7 +40,7 @@
     animation: holoGradient 15s ease infinite;
   }
 
-  &:after {
+  .sparkles {
     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
     background-position: center;
     background-size: 180%;
@@ -51,7 +50,7 @@
     animation: holoSparkle 20s ease infinite;
   }
 
-  &.active:before {
+  &.active .gradient {
     opacity: 0.5;
     animation: none;
     transition: none;
@@ -64,5 +63,49 @@
                     transparent 70%,
                     transparent 100%
     );
+  }
+}
+
+@keyframes holoSparkle {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  95% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes holoGradient {
+  3% {
+    opacity: 0;
+  }
+  5% {
+    background-position: 0% 0%;
+  }
+  7% {
+    opacity: 0.5;
+  }
+  9% {
+    background-position: 100% 100%;
+  }
+  11% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    background-position: 100% 100%;
+  }
+  55% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0;
+    background-position: 0% 0%;
   }
 }
