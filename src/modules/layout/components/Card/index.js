@@ -42,14 +42,18 @@ class Card extends Component {
 
         return {
             backgroundImage: `url(${img})`,
-            // backgroundPosition: `${this.state.bgPosLeft}% ${this.state.bgPosTop}%`,
             width: `${width}px`,
             height: `${height}px`,
         }
     }
 
     get cardClass () {
-        return cn(styles.card, {[styles.active]: this.state.active})
+        const { foil } = this.props;
+
+        return cn(styles.card, {
+            [styles.active]: this.state.active,
+            [styles.foil]: foil,
+        })
     }
 
     render () {
@@ -64,7 +68,7 @@ class Card extends Component {
                 >
                     <div
                         className={styles.gradient}
-                        style={{ backgroundPosition: `${this.state.bgPosLeft}% ${this.state.bgPosTop}%`}}
+                        style={{backgroundPosition: `${this.state.bgPosLeft}% ${this.state.bgPosTop}%`}}
                     />
                     <div className={styles.sparkles}/>
                 </Tilt>
