@@ -45,8 +45,8 @@ class LoginForm extends Component {
                     Login
                 </Button>
                 <div className={styles.spacing}/>
-                <Box textAlign="center">
-                    <Link to="/forgot" component={RouterLink}>
+                <Box textAlign="center" fontSize={12}>
+                    <Link to="/forgot" component={RouterLink} color="primary">
                         Forgot your username/password?
                     </Link>
                 </Box>
@@ -55,7 +55,7 @@ class LoginForm extends Component {
                 <div className={styles.spacing}/>
                 <Box textAlign="center">
                     Don't have an account yet? &nbsp;
-                    <Link to="/forgot" component={RouterLink}>
+                    <Link to="/register" component={RouterLink}>
                         Sign up now!
                     </Link>
                 </Box>
