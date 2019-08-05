@@ -1,0 +1,27 @@
+.centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.paper {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 320px;
+}
+
+.button {
+  width: 320px;
+}
+
+.spacing {
+  padding: 8px 0;
+}
