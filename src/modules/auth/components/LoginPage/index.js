@@ -7,9 +7,12 @@ import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
 import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 
 class LoginPage extends Component {
-    render () {
+    render() {
+        const { isSignup } = this.props;
+
         return (
             <div className={styles.centerFlex}>
                 <Container maxWidth="md">
@@ -28,7 +31,7 @@ class LoginPage extends Component {
                         </Hidden>
                         <Grid item xs={12} md={6}>
                             <div className={styles.centerFlex}>
-                                <LoginForm/>
+                                {isSignup ? <SignupForm /> : <LoginForm />}
                             </div>
                         </Grid>
                     </Grid>
@@ -38,6 +41,8 @@ class LoginPage extends Component {
     }
 }
 
-LoginPage.propTypes = {}
+LoginPage.propTypes = {
+    isSignup: PropTypes.bool,
+}
 
 export default LoginPage
