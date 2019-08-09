@@ -10,8 +10,16 @@ import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 
 class LoginPage extends Component {
-    render() {
-        const { isSignup } = this.props;
+    handleLogin = (values) => {
+        console.log('Login', values)
+    }
+
+    handleSignup = (values) => {
+        console.log('Signup', values)
+    }
+
+    render () {
+        const {isSignup} = this.props
 
         return (
             <div className={styles.centerFlex}>
@@ -31,7 +39,7 @@ class LoginPage extends Component {
                         </Hidden>
                         <Grid item xs={12} md={6}>
                             <div className={styles.centerFlex}>
-                                {isSignup ? <SignupForm /> : <LoginForm />}
+                                {isSignup ? <SignupForm onSubmit={this.handleSignup}/> : <LoginForm onSubmit={this.handleLogin}/>}
                             </div>
                         </Grid>
                     </Grid>

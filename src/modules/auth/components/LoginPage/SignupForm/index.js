@@ -14,16 +14,11 @@ import Divider from '@material-ui/core/Divider'
 import Paper from '@material-ui/core/Paper'
 
 class SignupForm extends Component {
-    handleSubmit = (e) => {
-        const { formValues } = this.props;
-
-        e.preventDefault()
-        console.log('Sign up', formValues)
-    }
-
     render () {
+        const { handleSubmit } = this.props;
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <Paper className={styles.paper}>
                     <Box textAlign="center">
                         <Typography variant="h5">
@@ -86,18 +81,12 @@ class SignupForm extends Component {
 }
 
 SignupForm.propTypes = {
-    formValues: PropTypes.object,
+    // hoc
+    handleSubmit: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => {
-    return {
-        formValues: getFormValues('signup')(state)
-    }
-}
 
-const formed = reduxForm({
+export default reduxForm({
     // a unique name for the form
     form: 'signup'
 })(SignupForm)
-
-export default connect(mapStateToProps)(formed)
