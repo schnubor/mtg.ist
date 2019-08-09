@@ -17,7 +17,7 @@ class LoginForm extends Component {
             <Paper className={styles.paper}>
                 <Box textAlign="center">
                     <Typography variant="h5">
-                        Welcome back! 👋
+                        Welcome back! <span role="img" aria-label="wave">👋</span>
                     </Typography>
                 </Box>
                 <div className={styles.spacing} />
