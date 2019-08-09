@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
-import { Form, reduxForm, Field, getFormValues } from 'redux-form'
+import { Form, reduxForm, Field } from 'redux-form'
 // UI
 import styles from '../main.module.scss'
 import Box from '@material-ui/core/Box'

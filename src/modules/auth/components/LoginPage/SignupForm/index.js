@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
-import { Field, getFormValues, reduxForm } from 'redux-form'
-import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form'
 // UI
 import styles from '../main.module.scss'
 import Box from '@material-ui/core/Box'
@@ -15,7 +14,7 @@ import Paper from '@material-ui/core/Paper'
 
 class SignupForm extends Component {
     render () {
-        const { handleSubmit } = this.props;
+        const {handleSubmit} = this.props
 
         return (
             <form onSubmit={handleSubmit}>
@@ -84,7 +83,6 @@ SignupForm.propTypes = {
     // hoc
     handleSubmit: PropTypes.func.isRequired,
 }
-
 
 export default reduxForm({
     // a unique name for the form

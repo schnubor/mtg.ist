@@ -25,6 +25,9 @@ class ReduxTextField extends Component {
     }
 }
 
-ReduxTextField.propTypes = {}
+ReduxTextField.propTypes = {
+    // hoc
+    input : PropTypes.object.isRequired,
+}
 
 export default ReduxTextField
