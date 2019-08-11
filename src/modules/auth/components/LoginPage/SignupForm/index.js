@@ -16,7 +16,6 @@ import Paper from '@material-ui/core/Paper'
 class SignupForm extends Component {
     render () {
         const {handleSubmit, firebase} = this.props
-        console.log('component', firebase)
 
         return (
             <form onSubmit={handleSubmit}>
