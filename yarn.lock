@@ -5000,11 +5000,6 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^2.3.1:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
-  integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
-
 hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.2.1, hoist-non-react-statics@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
@@ -8869,14 +8864,14 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-redux-firebase@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-redux-firebase/-/react-redux-firebase-2.3.0.tgz#a2660ca6b4571055f54c9f020a9568e6ea28d615"
-  integrity sha512-9wff/O4rREUcfH7Vd+TD4VRXjsKWazhefmsZFzxO6lYDSYw8whhomAnT0AZ7jeVIQ5+7xsleKnHJz38ROJHHLw==
+react-redux-firebase@^3.0.0-alpha.15:
+  version "3.0.0-alpha.15"
+  resolved "https://registry.yarnpkg.com/react-redux-firebase/-/react-redux-firebase-3.0.0-alpha.15.tgz#a24813d9c31c9cb9489beb7635f854e5496dcaf9"
+  integrity sha512-KijbwJPTHJ2xsxAuWuix3+T3X+VzkBwuchE44404wxL9NcfF/Sutx+chxjt+1dQWmNTKpcHbH6GY5V1c7RZ3Aw==
   dependencies:
-    hoist-non-react-statics "^2.3.1"
+    hoist-non-react-statics "^3.2.1"
     lodash "^4.17.11"
-    prop-types "^15.6.2"
+    prop-types "^15.7.2"
 
 react-redux@^7.1.0:
   version "7.1.0"

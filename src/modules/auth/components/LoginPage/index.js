@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+// HOC
+import { withFirebase } from 'react-redux-firebase'
 // UI
 import styles from './main.module.scss'
 import Card from '../../../layout/components/Card'
@@ -11,11 +13,23 @@ import SignupForm from './SignupForm'
 
 class LoginPage extends Component {
     handleLogin = (values) => {
-        console.log('Login', values)
+        const {firebase} = this.props
+        console.log('Login', values, firebase)
     }
 
-    handleSignup = (values) => {
-        console.log('Signup', values)
+    handleSignup = async (values) => {
+        const {firebase} = this.props
+
+        const credentials = {
+            email: values.email,
+            password: values.password,
+        }
+
+        try {
+            await firebase.createUser(credentials)
+        } catch (e) {
+            console.warn(e)
+        }
     }
 
     render () {
@@ -39,7 +53,9 @@ class LoginPage extends Component {
                         </Hidden>
                         <Grid item xs={12} md={6}>
                             <div className={styles.centerFlex}>
-                                {isSignup ? <SignupForm onSubmit={this.handleSignup}/> : <LoginForm onSubmit={this.handleLogin}/>}
+                                {isSignup ?
+                                    <SignupForm onSubmit={this.handleSignup}/> :
+                                    <LoginForm onSubmit={this.handleLogin}/>}
                             </div>
                         </Grid>
                     </Grid>
@@ -50,7 +66,11 @@ class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
+    // normal
     isSignup: PropTypes.bool,
+
+    // via hoc
+    firebase: PropTypes.object.isRequired,
 }
 
-export default LoginPage
+export default withFirebase(LoginPage)

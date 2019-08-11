@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
 // UI
 import styles from '../main.module.scss'
 import Box from '@material-ui/core/Box'
@@ -14,7 +15,8 @@ import Paper from '@material-ui/core/Paper'
 
 class SignupForm extends Component {
     render () {
-        const {handleSubmit} = this.props
+        const {handleSubmit, firebase} = this.props
+        console.log('component', firebase)
 
         return (
             <form onSubmit={handleSubmit}>
@@ -64,6 +66,10 @@ class SignupForm extends Component {
                     >
                         Sign up
                     </Button>
+                    {firebase.authError && <React.Fragment>
+                        <div className={styles.spacing}/>
+                        <Typography color="error" align="center">{firebase.authError.message}</Typography>
+                    </React.Fragment>}
                     <div className={styles.spacing}/>
                     <Divider/>
                     <div className={styles.spacing}/>
@@ -80,11 +86,23 @@ class SignupForm extends Component {
 }
 
 SignupForm.propTypes = {
+    // normal
+    error: PropTypes.object,
+
     // hoc
     handleSubmit: PropTypes.func.isRequired,
+
+    // mapStateToProps
+    firebase: PropTypes.object.isRequired,
 }
 
-export default reduxForm({
+const mapStateToProps = (state) => {
+    return {firebase: state.firebase}
+}
+
+const formed = reduxForm({
     // a unique name for the form
     form: 'signup'
 })(SignupForm)
+
+export default connect(mapStateToProps)(formed)
