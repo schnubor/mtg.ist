@@ -6,7 +6,6 @@ import { Route, Redirect } from 'react-router-dom'
 class PrivateRoute extends Component {
     render () {
         const {component: Component, firebase, ...rest} = this.props
-        console.log( firebase.auth.isAnonymous );
 
         return (
             <Route
