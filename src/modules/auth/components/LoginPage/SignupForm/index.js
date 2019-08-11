@@ -96,7 +96,9 @@ SignupForm.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-    return {firebase: state.firebase}
+    return {
+        firebase: state.firebase
+    }
 }
 
 const formed = reduxForm({

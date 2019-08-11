@@ -25,8 +25,13 @@ class LoginPage extends Component {
             password: values.password,
         }
 
+        const profile = {
+            email: values.email,
+            // any additional user data here...
+        }
+
         try {
-            await firebase.createUser(credentials)
+            await firebase.createUser(credentials, profile)
         } catch (e) {
             console.warn(e)
         }

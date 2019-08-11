@@ -1,11 +1,13 @@
 import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { firebaseReducer } from 'react-redux-firebase'
+import { firestoreReducer } from 'redux-firestore'
 
 const rootReducer = combineReducers(
     {
         // ...your other reducers here
         firebase: firebaseReducer,
+        firestore: firestoreReducer,
         form: formReducer,
     }
 )

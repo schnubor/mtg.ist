@@ -4,9 +4,14 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import store from './store'
-import firebase from 'firebase'
+// Firebase
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import { createFirestoreInstance } from 'redux-firestore'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/database'
 
 // Firebase config
 const firebaseConfig = {
@@ -20,16 +25,19 @@ const firebaseConfig = {
 }
 firebase.initializeApp(firebaseConfig)
 
+// Initialize other services on firebase instance
+firebase.firestore()
+
 // react-redux-firebase options
 const rrfConfig = {
-    // userProfile: 'users', // firebase root where user profiles are stored
+    userProfile: 'users', // firebase root where user profiles are stored
 }
 
 const rrfProps = {
     firebase,
     config: rrfConfig,
     dispatch: store.dispatch,
-    // createFirestoreInstance // <- needed if using firestore
+    createFirestoreInstance,
 }
 
 ReactDOM.render(
