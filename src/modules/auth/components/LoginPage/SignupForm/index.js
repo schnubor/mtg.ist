@@ -11,7 +11,6 @@ import TextField from './../../../../reduxForm/components/TextField'
 import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import Divider from '@material-ui/core/Divider'
-import Paper from '@material-ui/core/Paper'
 
 class SignupForm extends Component {
     render () {
