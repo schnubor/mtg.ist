@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 // HOC
 import { withFirebase } from 'react-redux-firebase'
 // UI
@@ -8,13 +11,24 @@ import Card from '../../../layout/components/Card'
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
+import Paper from '@material-ui/core/Paper'
 
 class LoginPage extends Component {
-    handleLogin = (values) => {
+    handleLogin = async (values) => {
         const {firebase} = this.props
-        console.log('Login', values, firebase)
+        const credentials = {
+            email: values.email,
+            password: values.password,
+        }
+
+        try {
+            await firebase.login(credentials)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     handleSignup = async (values) => {
@@ -32,13 +46,17 @@ class LoginPage extends Component {
 
         try {
             await firebase.createUser(credentials, profile)
-        } catch (e) {
-            console.warn(e)
+        } catch (err) {
+            console.warn(err)
         }
     }
 
     render () {
-        const {isSignup} = this.props
+        const {isSignup, location, auth} = this.props
+        console.log(auth.isLoaded)
+        // Redirect to referred location if signed in
+        let {from} = location.state || {from: {pathname: '/'}}
+        if (!auth.isEmpty) return <Redirect to={from}/>
 
         return (
             <div className={styles.centerFlex}>
@@ -58,9 +76,15 @@ class LoginPage extends Component {
                         </Hidden>
                         <Grid item xs={12} md={6}>
                             <div className={styles.centerFlex}>
-                                {isSignup ?
-                                    <SignupForm onSubmit={this.handleSignup}/> :
-                                    <LoginForm onSubmit={this.handleLogin}/>}
+                                <Paper className={styles.paper}>
+                                    {!auth.isLoaded && <div className={styles.loading}>
+                                        <CircularProgress/>
+                                    </div>}
+                                    {auth.Loaded && (isSignup ?
+                                        <SignupForm onSubmit={this.handleSignup}/> :
+                                        <LoginForm onSubmit={this.handleLogin}/>)
+                                    }
+                                </Paper>
                             </div>
                         </Grid>
                     </Grid>
@@ -76,6 +100,15 @@ LoginPage.propTypes = {
 
     // via hoc
     firebase: PropTypes.object.isRequired,
+
+    // mapStateToProps
+    auth: PropTypes.object.isRequired,
 }
 
-export default withFirebase(LoginPage)
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default compose(withFirebase, connect(mapStateToProps))(LoginPage)

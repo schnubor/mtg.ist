@@ -14,8 +14,8 @@ function App () {
             <Router>
                 <Switch>
                     <PrivateRoute path={routes.dashboard.home} exact component={() => <div>private</div>}/>
-                    <Route path={routes.auth.signup} exact render={() => <LoginPage isSignup/>}/>
-                    <Route path={routes.auth.login} exact render={() => <LoginPage/>}/>
+                    <Route path={routes.auth.signup} exact render={(props) => <LoginPage isSignup {...props}/>}/>
+                    <Route path={routes.auth.login} exact render={(props) => <LoginPage {...props}/>}/>
                 </Switch>
             </Router>
         </div>
