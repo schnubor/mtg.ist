@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
 import { Form, reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
+import validate from './validation'
 // UI
 import styles from '../main.module.scss'
 import Box from '@material-ui/core/Box'
@@ -87,6 +88,9 @@ const mapStateToProps = (state) => {
     return {firebase: state.firebase}
 }
 
-const formed = reduxForm({form: 'login'})(LoginForm)
+const formed = reduxForm({
+    form: 'login',
+    validate
+})(LoginForm)
 
 export default connect(mapStateToProps)(formed)

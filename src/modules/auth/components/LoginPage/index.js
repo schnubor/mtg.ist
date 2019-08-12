@@ -53,7 +53,6 @@ class LoginPage extends Component {
 
     render () {
         const {isSignup, location, auth} = this.props
-        console.log(auth.isLoaded)
         // Redirect to referred location if signed in
         let {from} = location.state || {from: {pathname: '/'}}
         if (!auth.isEmpty) return <Redirect to={from}/>
@@ -80,7 +79,7 @@ class LoginPage extends Component {
                                     {!auth.isLoaded && <div className={styles.loading}>
                                         <CircularProgress/>
                                     </div>}
-                                    {auth.Loaded && (isSignup ?
+                                    {auth.isLoaded && (isSignup ?
                                         <SignupForm onSubmit={this.handleSignup}/> :
                                         <LoginForm onSubmit={this.handleLogin}/>)
                                     }

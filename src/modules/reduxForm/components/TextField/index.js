@@ -13,13 +13,15 @@ class ReduxTextField extends Component {
     }
 
     render () {
-        const {input: {value}} = this.props
+        const {input: {value}, meta: {touched, error}} = this.props
 
         return (
             <TextField
                 {...this.props}
                 onChange={this.handleChange}
                 value={value}
+                error={touched && !!error}
+                helperText={touched && error}
             />
         )
     }
@@ -27,7 +29,7 @@ class ReduxTextField extends Component {
 
 ReduxTextField.propTypes = {
     // hoc
-    input : PropTypes.object.isRequired,
+    input: PropTypes.object.isRequired,
 }
 
 export default ReduxTextField
