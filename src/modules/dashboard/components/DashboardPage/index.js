@@ -112,21 +112,21 @@ class DashboardPage extends Component {
                                 Latest Cards
                             </Typography>
                             <Grid container>
-                                <Grid item md={3} xs={6} className={styles.card}>
+                                <Grid item md={3} sm={6} xs={12} className={styles.card}>
                                     <Card
                                         size="md"
                                         img="https://i.pinimg.com/originals/15/1d/71/151d71dd0aa6713f98892080d0d00f5d.png"
                                         tiltOptions={{max: 20, scale: 1.05}}
                                     />
                                 </Grid>
-                                <Grid item md={3} xs={6} className={styles.card}>
+                                <Grid item md={3} sm={6} xs={12} className={styles.card}>
                                     <Card
                                         size="md"
                                         img="https://img.scryfall.com/cards/large/front/3/5/354fe9bd-4ec8-409c-8ce5-b29393f3d169.jpg"
                                         tiltOptions={{max: 20, scale: 1.05}}
                                     />
                                 </Grid>
-                                <Grid item md={3} xs={6} className={styles.card}>
+                                <Grid item md={3} sm={6} xs={12} className={styles.card}>
                                     <Card
                                         foil
                                         size="md"
@@ -134,7 +134,7 @@ class DashboardPage extends Component {
                                         tiltOptions={{max: 20, scale: 1.05}}
                                     />
                                 </Grid>
-                                <Grid item md={3} xs={6} className={styles.card}>
+                                <Grid item md={3} sm={6} xs={12} className={styles.card}>
                                     <Card
                                         size="md"
                                         img="https://img.scryfall.com/cards/large/front/d/7/d75ebba8-34ca-47a0-bf13-8318ad73b343.jpg"
