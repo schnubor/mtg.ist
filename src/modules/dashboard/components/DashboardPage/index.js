@@ -128,6 +128,7 @@ class DashboardPage extends Component {
                                 </Grid>
                                 <Grid item md={3} xs={6} className={styles.card}>
                                     <Card
+                                        foil
                                         size="md"
                                         img="https://img.scryfall.com/cards/large/front/4/c/4c565076-5db2-47ea-8ee0-4a4fd7bb353d.jpg"
                                         tiltOptions={{max: 20, scale: 1.05}}
