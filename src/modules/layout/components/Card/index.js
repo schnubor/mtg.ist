@@ -54,15 +54,18 @@ class Card extends Component {
     }
 
     get cardClass () {
-        const {foil, size} = this.props
+        const {foil, size, shadow} = this.props
 
         return cn(styles.card, styles[size], {
             [styles.active]: this.state.active,
             [styles.foil]: foil,
+            [styles.shadow]: shadow,
         })
     }
 
     render () {
+        const {tiltOptions} = this.props
+
         return (
             <React.Fragment>
                 <Tilt
@@ -71,6 +74,7 @@ class Card extends Component {
                     onMouseMove={this.handleMouseMove}
                     onMouseEnter={this.handleMouseEnter}
                     onMouseLeave={this.handleMouseLeave}
+                    options={tiltOptions}
                 >
                     <div
                         className={styles.gradient}
@@ -86,12 +90,16 @@ class Card extends Component {
 Card.propTypes = {
     img: PropTypes.string.isRequired,
     foil: PropTypes.bool,
+    shadow: PropTypes.bool,
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    tiltOptions: PropTypes.object,
 }
 
 Card.defaultProps = {
     foil: false,
+    shadow: false,
     size: 'lg',
+    tiltOptions: {}
 }
 
 export default Card

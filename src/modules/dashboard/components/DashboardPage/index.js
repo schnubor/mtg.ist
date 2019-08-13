@@ -12,6 +12,7 @@ import styles from './DashboardPage.module.scss'
 import DrawerNavigation from './DrawerNavigation'
 import UserDropdown from './UserDropdown'
 import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Drawer from '@material-ui/core/Drawer'
@@ -24,6 +25,7 @@ import IconButton from '@material-ui/core/IconButton'
 // Icons
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import Card from '../../../layout/components/Card'
 
 class DashboardPage extends Component {
     constructor (props) {
@@ -68,6 +70,9 @@ class DashboardPage extends Component {
                         <Typography variant="h6" noWrap className={styles.title}>
                             Dashboard
                         </Typography>
+                        <Typography className={styles.username}>
+                            {auth.email}
+                        </Typography>
                         <UserDropdown/>
                     </Toolbar>
                 </AppBar>
@@ -102,9 +107,41 @@ class DashboardPage extends Component {
                 <main className={styles.content}>
                     <div className={styles.toolbar}/>
                     <Container>
-                        <Typography>
-                            {`Welcome back ${auth.email}!`}
-                        </Typography>
+                        <Paper className={styles.paper}>
+                            <Typography variant="h5" component="h3">
+                                Latest Cards
+                            </Typography>
+                            <Grid container>
+                                <Grid item md={3} xs={6} className={styles.card}>
+                                    <Card
+                                        size="md"
+                                        img="https://i.pinimg.com/originals/15/1d/71/151d71dd0aa6713f98892080d0d00f5d.png"
+                                        tiltOptions={{max: 20, scale: 1.05}}
+                                    />
+                                </Grid>
+                                <Grid item md={3} xs={6} className={styles.card}>
+                                    <Card
+                                        size="md"
+                                        img="https://img.scryfall.com/cards/large/front/3/5/354fe9bd-4ec8-409c-8ce5-b29393f3d169.jpg"
+                                        tiltOptions={{max: 20, scale: 1.05}}
+                                    />
+                                </Grid>
+                                <Grid item md={3} xs={6} className={styles.card}>
+                                    <Card
+                                        size="md"
+                                        img="https://img.scryfall.com/cards/large/front/4/c/4c565076-5db2-47ea-8ee0-4a4fd7bb353d.jpg"
+                                        tiltOptions={{max: 20, scale: 1.05}}
+                                    />
+                                </Grid>
+                                <Grid item md={3} xs={6} className={styles.card}>
+                                    <Card
+                                        size="md"
+                                        img="https://img.scryfall.com/cards/large/front/d/7/d75ebba8-34ca-47a0-bf13-8318ad73b343.jpg"
+                                        tiltOptions={{max: 20, scale: 1.05}}
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Paper>
                     </Container>
                 </main>
             </div>

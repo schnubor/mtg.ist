@@ -9,13 +9,15 @@ $lg: 320;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: -3px -3px 3px 0 rgba(#26e6f7, 0.6), 3px 3px 3px 0 rgba(#f759e4, 0.6), 0 0 6px 2px rgba(#ffe759, 0.6),
-  0 35px 25px -15px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
   margin: 20px 10px;
+
+  &.shadow {
+    box-shadow: 0 35px 25px -15px rgba(0, 0, 0, 0.5);
+  }
 
   & > span {
     position: relative;
@@ -41,6 +43,11 @@ $lg: 320;
   }
 
   &.foil {
+    box-shadow: -3px -3px 3px 0 rgba(#26e6f7, 0.6),
+    3px 3px 3px 0 rgba(#f759e4, 0.6),
+    0 0 6px 2px rgba(#ffe759, 0.6),
+    0 35px 25px -15px rgba(0, 0, 0, 0.5);
+
     .sparkles, .gradient {
       position: absolute;
       left: 0;
