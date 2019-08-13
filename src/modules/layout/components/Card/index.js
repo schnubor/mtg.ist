@@ -97,7 +97,7 @@ Card.propTypes = {
 
 Card.defaultProps = {
     foil: false,
-    shadow: false,
+    shadow: true,
     size: 'lg',
     tiltOptions: {}
 }
