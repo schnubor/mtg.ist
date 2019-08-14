@@ -13,7 +13,23 @@ $lg: 320;
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  margin: 20px 10px;
+  width: 100%;
+  border-radius: 10px;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 139.1825%;
+  }
+
+  & > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 
   &.shadow {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
@@ -26,24 +42,6 @@ $lg: 320;
   & > span {
     position: relative;
     top: 45%;
-  }
-
-  &.sm {
-    border-radius: $sm * $radiusRatio * 1px;
-    width: $sm * 1px;
-    height: $sm / $cardRatio * 1px;
-  }
-
-  &.md {
-    border-radius: $md * $radiusRatio * 1px;
-    width: $md * 1px;
-    height: $md / $cardRatio * 1px;
-  }
-
-  &.lg {
-    border-radius: $lg * $radiusRatio * 1px;
-    width: $lg * 1px;
-    height: $lg / $cardRatio * 1px;
   }
 
   &.foil {

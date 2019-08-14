@@ -14,8 +14,8 @@ class DrawerNavigation extends Component {
         return (
             <List>
                 {navItems.map((item) => (
-                    <Link to={item.link} style={{textDecoration: 'none'}}>
-                        <ListItem button key={item.text}>
+                    <Link to={item.link} style={{textDecoration: 'none'}} key={item.text}>
+                        <ListItem button>
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText primary={item.text}
                                           primaryTypographyProps={{

@@ -1,0 +1,15 @@
+.spacing {
+  width: 100%;
+
+  &.sm {
+    padding: 4px 0;
+  }
+
+  &.md {
+    padding: 8px 0;
+  }
+
+  &.lg {
+    padding: 12px 0;
+  }
+}

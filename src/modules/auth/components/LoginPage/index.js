@@ -64,12 +64,14 @@ class LoginPage extends Component {
                         <Hidden smDown>
                             <Grid item xs={12} md={6}>
                                 <div className={styles.centerFlex}>
-                                    <Card
-                                        foil
-                                        img="https://i.pinimg.com/originals/15/1d/71/151d71dd0aa6713f98892080d0d00f5d.png"
-                                        width={220}
-                                        height={305}
-                                    />
+                                    <div className={styles.card}>
+                                        <Card
+                                            foil
+                                            img="https://i.pinimg.com/originals/15/1d/71/151d71dd0aa6713f98892080d0d00f5d.png"
+                                            width={220}
+                                            height={305}
+                                        />
+                                    </div>
                                 </div>
                             </Grid>
                         </Hidden>
