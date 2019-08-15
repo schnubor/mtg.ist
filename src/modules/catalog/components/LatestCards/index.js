@@ -25,7 +25,17 @@ class LatestCards extends Component {
         },
         {
             id: 'd75ebba8-34ca-47a0-bf13-8318ad73b343'
-        }
+        },
+        {
+            id: '0104b5b3-9376-4ad7-9a77-3e564e9c42e6'
+        },
+        {
+            id: 'f006255f-b18d-4d52-b97a-17909b67decc'
+        },
+        {
+            id: 'd1dbc559-c78c-4675-9582-9c28f8151bc7'
+        },
+
     ]
 
     render () {

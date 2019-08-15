@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './ManaCosts.module.scss'
+import { Typography } from '@material-ui/core'
 
 class ManaCosts extends Component {
-    get splittedCosts () {
+    get splitCards () {
         const {mana} = this.props
+
+        return mana.split(' // ').filter(Boolean)
+    }
+
+    get splittedCardCosts () {
         const regex = /\s*({.})\s*/g
 
-        const costs = mana.split(regex).filter(Boolean)
-        return costs
+        return this.splitCards.map((cardCost) => {
+            return cardCost.split(regex).filter(Boolean)
+        })
     }
 
     render () {
@@ -16,12 +23,20 @@ class ManaCosts extends Component {
 
         return (
             <React.Fragment>
-                {this.splittedCosts.map((cost, index) => {
-                    let manaCost = cost.substring(1, cost.length - 1)
-                    manaCost = isNaN(manaCost) ? manaCost.toLowerCase() : manaCost
-                    const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
+                {this.splittedCardCosts.map((card, index) => {
+                    const manaIcons = card.map((cost) => {
+                        let manaCost = cost.substring(1, cost.length - 1)
+                        manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
+                        const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
-                    return <i key={`${cost}-${index}`} className={iconClass}/>
+                        return <i key={`${cost}-${index}`} className={iconClass}/>
+                    })
+
+                    return index > 0 ? <React.Fragment>
+                        <Typography variant="h5">
+                            {'//'}
+                        </Typography> {manaIcons}
+                    </React.Fragment> : manaIcons
                 })}
             </React.Fragment>
         )

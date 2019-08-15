@@ -36,7 +36,7 @@ class CardPage extends Component {
                         />
                         <Spacing/>
                         <Typography align="center" variant="body2" color="textSecondary">
-                            Art by {card.artist}
+                            Illustrated by {card.artist}
                         </Typography>
                     </Grid>
                     <Grid item md={1} implementation="css" smDown component={Hidden}/>
@@ -66,6 +66,9 @@ class CardPage extends Component {
                                 <Spacing/>
                                 {card.loyalty && <Typography>
                                     <strong>Loyalty: {card.loyalty}</strong>
+                                </Typography>}
+                                {card.power && card.toughness && <Typography>
+                                    <strong>{card.power}/{card.toughness}</strong>
                                 </Typography>}
                             </Loading>
                         </Paper>
