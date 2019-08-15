@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import { connect } from 'react-redux'
+import { getCardImage, calcBorderRadius } from '../../helper'
 // UI
 import Tilt from 'react-tilt'
 import styles from './Card.module.scss'
@@ -9,7 +10,6 @@ import styles from './Card.module.scss'
 import { fetchCardById } from '../../actions/fetchCard'
 // Selectors
 import { getCardById } from '../../selectors'
-import { getCardImage } from '../../helper'
 
 const cardRatio = 0.720720720720721
 
@@ -57,9 +57,11 @@ class Card extends Component {
     get cardStyle () {
         const {card, format} = this.props
         const image = getCardImage(card, format)
+        const borderRadius = calcBorderRadius(this.width)
 
         return {
             backgroundImage: `url(${image})`,
+            borderRadius: `${borderRadius}px`
         }
     }
 
