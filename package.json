@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "firebase": "^6.3.5",
     "firebaseui": "^4.1.0",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -17,8 +18,11 @@
     "react-scripts": "3.0.1",
     "react-tilt": "^0.1.4",
     "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
     "redux-firestore": "^0.8.0",
-    "redux-form": "^8.2.5"
+    "redux-form": "^8.2.5",
+    "redux-thunk": "^2.3.0",
+    "scryfall-sdk": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

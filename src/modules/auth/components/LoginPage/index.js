@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom'
 import { withFirebase } from 'react-redux-firebase'
 // UI
 import styles from './main.module.scss'
-import Card from '../../../layout/components/Card'
+import Card from '../../../cards/components/Card'
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
@@ -67,9 +67,7 @@ class LoginPage extends Component {
                                     <div className={styles.card}>
                                         <Card
                                             foil
-                                            img="https://i.pinimg.com/originals/15/1d/71/151d71dd0aa6713f98892080d0d00f5d.png"
-                                            width={220}
-                                            height={305}
+                                            id="d21a7b23-8827-49f2-ade4-75a602d17743"
                                         />
                                     </div>
                                 </div>

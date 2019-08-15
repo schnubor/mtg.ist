@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
+import { connect } from 'react-redux'
 // UI
 import Tilt from 'react-tilt'
 import styles from './Card.module.scss'
+// Actions
+import { fetchCardById } from '../../actions/fetchCard'
+// Selectors
+import { getCardById } from '../../selectors'
+import { getCardImage } from '../../helper'
 
 const cardRatio = 0.720720720720721
 
@@ -20,7 +26,12 @@ class Card extends Component {
     }
 
     componentDidMount () {
+        const {id, fetchCard} = this.props
         this.width = this.cardEl.current.offsetWidth
+
+        if (id) {
+            fetchCard(id)
+        }
     }
 
     handleMouseMove = (e) => {
@@ -44,10 +55,11 @@ class Card extends Component {
     }
 
     get cardStyle () {
-        const {img} = this.props
+        const {card, format} = this.props
+        const image = getCardImage(card, format)
 
         return {
-            backgroundImage: `url(${img})`,
+            backgroundImage: `url(${image})`,
         }
     }
 
@@ -86,16 +98,37 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-    img: PropTypes.string.isRequired,
+    // normal
+    id: PropTypes.string.isRequired,
     foil: PropTypes.bool,
     shadow: PropTypes.bool,
     tiltOptions: PropTypes.object,
+    format: PropTypes.oneOf(['large', 'normal', 'small', 'png', 'border_crop', 'art_crop']),
+
+    // mapStateToProps
+    card: PropTypes.object,
+
+    // mapDispatchToProps
+    fetchCard: PropTypes.func.isRequired,
 }
 
 Card.defaultProps = {
     foil: false,
     shadow: true,
-    tiltOptions: {}
+    tiltOptions: {},
+    format: 'normal'
 }
 
-export default Card
+const mapStateToProps = (state, ownProps) => {
+    return {
+        card: getCardById(state, ownProps.id)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchCard: (id) => dispatch(fetchCardById(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card)
