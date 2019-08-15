@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withFirebase } from 'react-redux-firebase'
+import { withRouter } from 'react-router-dom'
+import { routes } from '../../../../../../routes'
 // UI
 import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
@@ -33,10 +35,11 @@ class UserDropdown extends Component {
     }
 
     handleLogout = () => {
-        const {firebase} = this.props
+        const {firebase, history} = this.props
         this.handleClose()
 
         firebase.logout()
+        history.push(routes.auth.login)
     }
 
     render () {
@@ -74,6 +77,7 @@ class UserDropdown extends Component {
 UserDropdown.propTypes = {
     // hoc
     firebase: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
 }
 
-export default withFirebase(UserDropdown)
+export default withRouter(withFirebase(UserDropdown))

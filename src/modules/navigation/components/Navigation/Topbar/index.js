@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 // UI
 import cn from 'classnames'
 import styles from '../Navigation.module.scss'
-import UserDropdown from '../UserDropdown'
+import UserDropdown from './UserDropdown'
 // Material
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
