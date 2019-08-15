@@ -10,6 +10,7 @@ import PrivateRoute from './modules/auth/components/PrivateRoute'
 // Pages
 import LoginPage from './modules/auth/components/LoginPage'
 import DashboardPage from './modules/dashboard/components/DashboardPage'
+import CatalogPage from './modules/catalog/components/CatalogPage'
 
 class App extends React.Component {
     render () {
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Router>
                         <Switch>
                             <PrivateRoute path={routes.dashboard.home} exact component={DashboardPage}/>
+                            <PrivateRoute path={routes.catalog.main} component={CatalogPage}/>
                             <Route path={routes.auth.signup} exact
                                    render={(props) => <LoginPage isSignup {...props}/>}/>
                             <Route path={routes.auth.login} exact render={(props) => <LoginPage {...props}/>}/>

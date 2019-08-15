@@ -5,8 +5,9 @@ import { compose } from 'redux'
 import { withFirebase } from 'react-redux-firebase'
 // UI
 import Navigation from './../../../navigation/components/Navigation'
+import LatestCards from '../LatestCards'
 
-class DashboardPage extends Component {
+class CatalogPage extends Component {
     constructor (props) {
         super(props)
 
@@ -24,13 +25,13 @@ class DashboardPage extends Component {
     render () {
         return (
             <Navigation>
-                Home
+                <LatestCards/>
             </Navigation>
         )
     }
 }
 
-DashboardPage.propTypes = {
+CatalogPage.propTypes = {
     // hoc
     firebase: PropTypes.object.isRequired,
 }
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => {
     return {}
 }
 
-export default compose(withFirebase, connect(mapStateToProps))(DashboardPage)
+export default compose(withFirebase, connect(mapStateToProps))(CatalogPage)

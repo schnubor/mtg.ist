@@ -56,10 +56,6 @@ class UserDropdown extends Component {
                 <Menu
                     id="menu-appbar"
                     anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
                     keepMounted
                     transformOrigin={{
                         vertical: 'bottom',

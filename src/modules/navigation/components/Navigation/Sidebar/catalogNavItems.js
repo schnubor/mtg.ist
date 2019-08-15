@@ -1,5 +1,5 @@
 import React from 'react'
-import { routes } from '../../../../routes'
+import { routes } from '../../../../../routes'
 import SearchIcon from '@material-ui/icons/Search'
 import ViewModuleIcon from '@material-ui/icons/ViewModule'
 import BarChartIcon from '@material-ui/icons/BarChartOutlined'

@@ -1,0 +1,68 @@
+.root {
+  display: flex;
+
+  .appBar {
+    z-index: 1201;
+    transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms, margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .appBarShift {
+    width: calc(100% - 240px);
+    transition: width 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms, margin 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    margin-left: 240px;
+  }
+
+  .menuButton {
+    margin-right: 36px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .drawer {
+    width: 240px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .grow {
+    flex-grow: 1;
+  }
+
+  .username {
+    margin-right: 8px;
+  }
+
+  .drawerOpen {
+    width: 240px;
+    transition: width 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .drawerClose {
+    width: 57px;
+    overflow-x: hidden;
+    transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .content {
+    padding: 24px;
+    flex-grow: 1
+  }
+
+  .toolbar {
+    display: flex;
+    padding: 0 8px;
+    min-height: 56px;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media (min-width: 0px) and (orientation: landscape) {
+      min-height: 48px;
+    }
+
+    @media (min-width: 600px) {
+      min-height: 64px;
+    }
+  }
+}
