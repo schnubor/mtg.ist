@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styles from './ManaCosts.module.scss'
 
 class ManaCosts extends Component {
     get splittedCosts () {
@@ -17,9 +18,10 @@ class ManaCosts extends Component {
             <React.Fragment>
                 {this.splittedCosts.map((cost, index) => {
                     let manaCost = cost.substring(1, cost.length - 1)
-                    manaCost = isNaN(manaCost) ? manaCost.toLowerCase() : manaCost;
+                    manaCost = isNaN(manaCost) ? manaCost.toLowerCase() : manaCost
+                    const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
-                    return <i key={`${cost}-${index}`} className={`ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`}/>
+                    return <i key={`${cost}-${index}`} className={iconClass}/>
                 })}
             </React.Fragment>
         )
