@@ -9,6 +9,7 @@
     "firebase": "^6.3.5",
     "firebaseui": "^4.1.0",
     "lodash": "^4.17.15",
+    "mana-font": "^1.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

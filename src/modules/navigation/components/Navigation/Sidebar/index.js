@@ -7,7 +7,7 @@ import deckNav from './deckNavItems'
 // UI
 import cn from 'classnames'
 import styles from '../Navigation.module.scss'
-import DrawerNavigation from '../DrawerNavigation'
+import DrawerNavigation from './DrawerNavigation'
 // Material
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'

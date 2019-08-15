@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
 // UI
 import styles from './QuickSearch.module.scss'
 import SearchIcon from '@material-ui/icons/Search'
-import InputBase from '@material-ui/core/InputBase';
+import InputBase from '@material-ui/core/InputBase'
 // Actions
 // Selectors
 
@@ -43,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
     return {}
 }
 
-const connected = connect(mapStateToProps, mapDispatchToProps)(QuickSearch)
+const formed = reduxForm({
+    form: 'quicksearch'
+})( QuickSearch )
+const connected = connect(mapStateToProps, mapDispatchToProps)(formed)
 
 export default connected

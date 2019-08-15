@@ -14,5 +14,8 @@ export const routes = {
     decks: {
         main: '/decks',
         add: '/decks/add'
+    },
+    card: {
+        main: '/card/:id'
     }
 }
