@@ -32,7 +32,7 @@ class ManaCosts extends Component {
                         return <i key={`${cost}-${index}`} className={iconClass}/>
                     })
 
-                    return index > 0 ? <React.Fragment>
+                    return index > 0 ? <React.Fragment key={`splitcard-${index}`}>
                         <Typography variant="h5">
                             {'//'}
                         </Typography> {manaIcons}
