@@ -2,20 +2,3 @@
   padding: 24px 16px;
   min-height: 300px;
 }
-
-.title {
-  display: flex;
-  align-items: center;
-
-  .left{
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    margin-top: -4px;
-  }
-}

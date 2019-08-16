@@ -2,23 +2,25 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
-import get from 'lodash/get'
 // UI
 import styles from './CardPage.module.scss'
 import Card from './../Card'
 import Navigation from '../../../navigation/components/Navigation'
 import Loading from '../../../layout/components/Loading'
 import Spacing from '../../../layout/components/Spacing'
-import ManaCosts from '../../../layout/components/ManaCosts'
+import CardHeader from './CardHeader'
+import CardText from './CardText'
+import FlavorText from './FlavorText'
+import PowerText from './PowerText'
 // Material
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
-import Divider from '@material-ui/core/Divider'
 // Actions
 // Selectors
 import { getCardById } from '../../selectors'
+
 
 class CardPage extends Component {
     render () {
@@ -43,33 +45,10 @@ class CardPage extends Component {
                     <Grid item md={7} xs={12}>
                         <Paper className={styles.paper}>
                             <Loading loading={isEmpty(card)}>
-                                <div className={styles.title}>
-                                    <div className={styles.left}>
-                                        <Typography variant="h5">
-                                            {card.name}
-                                        </Typography>
-                                    </div>
-                                    <div className={styles.right}>
-                                        <ManaCosts size="2x" mana={card.mana_cost}/>
-                                    </div>
-                                </div>
-                                <Spacing/>
-                                <Divider/>
-                                <Spacing/>
-                                <Typography>
-                                    {get(card, 'oracle_text', '').split('\n').map((item, key) => {
-                                        return <React.Fragment key={key}>{item}<br/><br/></React.Fragment>
-                                    })}
-                                </Typography>
-                                <Spacing/>
-                                <Divider/>
-                                <Spacing/>
-                                {card.loyalty && <Typography>
-                                    <strong>Loyalty: {card.loyalty}</strong>
-                                </Typography>}
-                                {card.power && card.toughness && <Typography>
-                                    <strong>{card.power}/{card.toughness}</strong>
-                                </Typography>}
+                                <CardHeader card={card}/>
+                                <CardText card={card}/>
+                                <FlavorText card={card}/>
+                                <PowerText card={card}/>
                             </Loading>
                         </Paper>
                     </Grid>
