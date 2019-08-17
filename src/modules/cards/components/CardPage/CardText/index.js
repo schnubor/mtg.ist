@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import reactStringReplace from 'react-string-replace'
-import jsxToString from 'jsx-to-string'
 // UI
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
