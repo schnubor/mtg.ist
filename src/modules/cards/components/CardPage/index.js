@@ -17,14 +17,15 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
+import Button from '@material-ui/core/Button'
+import AddIcon from '@material-ui/icons/Add'
 // Actions
 // Selectors
 import { getCardById } from '../../selectors'
 
-
 class CardPage extends Component {
     render () {
-        const {match, card} = this.props
+        const {match, card, auth} = this.props
 
         return (
             <Navigation>
@@ -40,6 +41,11 @@ class CardPage extends Component {
                         <Typography align="center" variant="body2" color="textSecondary">
                             Illustrated by {card.artist}
                         </Typography>
+                        {!auth.isEmpty && <div className={styles.addButton}>
+                            <Button variant="contained" color="primary" size="large">
+                                <AddIcon className={styles.btnIcon}/> Add to Collection
+                            </Button>
+                        </div>}
                     </Grid>
                     <Grid item md={1} implementation="css" smDown component={Hidden}/>
                     <Grid item md={7} xs={12}>
@@ -63,7 +69,8 @@ CardPage.propTypes = {
     // via hoc
     match: PropTypes.object.isRequired,
     // via mapStateToProps
-    card: PropTypes.object
+    card: PropTypes.object,
+    auth: PropTypes.object.isRequired,
     // via mapDispatchProps
 }
 
@@ -73,7 +80,8 @@ CardPage.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        card: getCardById(state, ownProps.match.params.id)
+        card: getCardById(state, ownProps.match.params.id),
+        auth: state.firebase.auth
     }
 }
 

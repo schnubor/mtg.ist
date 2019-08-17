@@ -15,11 +15,11 @@ import CardPage from './modules/cards/components/CardPage'
 
 class App extends React.Component {
     render () {
-        const {firebase} = this.props
+        const {isLoaded} = this.props
 
         return (
             <div className={styles.app}>
-                <Loading loading={firebase.isInitializing}>
+                <Loading loading={!isLoaded}>
                     <Router>
                         <Switch>
                             <PrivateRoute path={routes.dashboard.home} exact component={DashboardPage}/>
@@ -36,8 +36,14 @@ class App extends React.Component {
     }
 }
 
+App.defaultProps = {
+    isLoaded: false
+}
+
 const mapStateToProps = (state) => {
-    return {firebase: state.firebase}
+    return {
+        isLoaded: state.firebase.auth.isLoaded
+    }
 }
 
 export default connect(mapStateToProps)(App)

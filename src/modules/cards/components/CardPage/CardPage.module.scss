@@ -2,3 +2,12 @@
   padding: 24px 16px;
   min-height: 300px;
 }
+
+.addButton {
+  text-align: center;
+  margin-top: 24px;
+
+  .btnIcon {
+    margin-right: 8px;
+  }
+}
