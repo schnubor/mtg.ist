@@ -1,13 +1,25 @@
 .paper {
   padding: 24px 16px;
-  min-height: 300px;
+  margin-bottom: 24px;
+
+  &.minHeight {
+    min-height: 300px;
+  }
 }
 
 .addButton {
   text-align: center;
   margin-top: 24px;
+}
 
-  .btnIcon {
-    margin-right: 8px;
-  }
+.link {
+  text-decoration: none;
+}
+
+.buyButton {
+  width: 100%;
+}
+
+.btnIcon {
+  margin-right: 8px;
 }

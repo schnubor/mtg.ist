@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash/isEmpty'
+import cn from 'classnames'
 // UI
 import styles from './CardPage.module.scss'
 import Card from './../Card'
@@ -19,6 +20,7 @@ import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 // Actions
 // Selectors
 import { getCardById } from '../../selectors'
@@ -49,7 +51,7 @@ class CardPage extends Component {
                     </Grid>
                     <Grid item md={1} implementation="css" smDown component={Hidden}/>
                     <Grid item md={7} xs={12}>
-                        <Paper className={styles.paper}>
+                        <Paper className={cn(styles.paper, styles.minHeight)}>
                             <Loading loading={isEmpty(card)}>
                                 <CardHeader card={card}/>
                                 <CardText card={card}/>
@@ -57,6 +59,36 @@ class CardPage extends Component {
                                 <PowerText card={card}/>
                             </Loading>
                         </Paper>
+                        {!isEmpty(card) && <Paper className={styles.paper}>
+                            <Grid container alignItems="center" spacing={2}>
+                                <Grid item md={3} sm={6} alignItems="center">
+                                    <Typography variant="h5" align="center">
+                                        {card.prices.eur}€
+                                    </Typography>
+                                </Grid>
+                                <Grid item md={3} sm={6}>
+                                    <a href={card.purchase_uris.tcgplayer} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                                        <Button variant="contained" color="primary" className={styles.buyButton}>
+                                            <ShoppingCartIcon className={styles.btnIcon}/> TCGplayer
+                                        </Button>
+                                    </a>
+                                </Grid>
+                                <Grid item md={3} sm={6}>
+                                    <a href={card.purchase_uris.cardmarket} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                                        <Button variant="contained" color="primary" className={styles.buyButton}>
+                                            <ShoppingCartIcon className={styles.btnIcon}/> Cardmarket
+                                        </Button>
+                                    </a>
+                                </Grid>
+                                <Grid item md={3} sm={6}>
+                                    <a href={card.purchase_uris.cardhoarder} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                                        <Button variant="contained" color="primary" className={styles.buyButton}>
+                                            <ShoppingCartIcon className={styles.btnIcon}/> Cardhoarder
+                                        </Button>
+                                    </a>
+                                </Grid>
+                            </Grid>
+                        </Paper>}
                     </Grid>
                 </Grid>
             </Navigation>
