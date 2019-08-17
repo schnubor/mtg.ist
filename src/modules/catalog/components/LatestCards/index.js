@@ -35,7 +35,9 @@ class LatestCards extends Component {
         {
             id: 'd1dbc559-c78c-4675-9582-9c28f8151bc7'
         },
-
+        {
+            id: 'a41335c2-3d11-4f95-8d9f-66b04398c10b'
+        },
     ]
 
     render () {

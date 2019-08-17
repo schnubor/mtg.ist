@@ -23,16 +23,16 @@ class ManaCosts extends Component {
 
         return (
             <React.Fragment>
-                {this.splittedCardCosts.map((card, index) => {
-                    const manaIcons = card.map((cost) => {
+                {this.splittedCardCosts.map((card, cardIndex) => {
+                    const manaIcons = card.map((cost, costIndex) => {
                         let manaCost = cost.substring(1, cost.length - 1)
                         manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
                         const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
-                        return <i key={`${cost}-${index}`} className={iconClass}/>
+                        return <i key={`${cost}-${costIndex}`} className={iconClass}/>
                     })
 
-                    return index > 0 ? <React.Fragment key={`splitcard-${index}`}>
+                    return cardIndex > 0 ? <React.Fragment key={`splitcard-${cardIndex}`}>
                         <Typography variant="h5">
                             {'//'}
                         </Typography> {manaIcons}

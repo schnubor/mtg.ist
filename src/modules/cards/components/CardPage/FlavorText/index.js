@@ -24,7 +24,7 @@ class FlavorText extends Component {
                 <Spacing/>
                 <Typography className={styles.italic}>
                     {this.flavorText.split('\n').map((item, key) => {
-                        return <React.Fragment key={key}>{item}<br/><br/></React.Fragment>
+                        return <React.Fragment key={key}>{item}<br/></React.Fragment>
                     })}
                 </Typography>
             </React.Fragment>
