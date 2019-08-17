@@ -61,7 +61,7 @@ class CardPage extends Component {
                         </Paper>
                         {!isEmpty(card) && <Paper className={styles.paper}>
                             <Grid container alignItems="center" spacing={2}>
-                                <Grid item md={3} sm={6} alignItems="center">
+                                <Grid item md={3} sm={6}>
                                     <Typography variant="h5" align="center">
                                         {card.prices.eur}€
                                     </Typography>
