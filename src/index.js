@@ -31,7 +31,8 @@ firebase.firestore()
 
 // react-redux-firebase options
 const rrfConfig = {
-    userProfile: 'users', // firebase root where user profiles are stored
+    userProfile: 'users',
+    useFirestoreForProfile: true
 }
 
 const rrfProps = {
