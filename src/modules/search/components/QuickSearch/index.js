@@ -6,10 +6,6 @@ import { reduxForm, Field } from 'redux-form'
 import styles from './QuickSearch.module.scss'
 import SearchIcon from '@material-ui/icons/Search'
 import ReduxNavTextField from '../../../reduxForm/components/NavTextField'
-// Actions
-import { clearSearch, quickSearch } from '../../actions/quickSearch'
-// Selectors
-import { getSearchResults } from '../../selectors'
 
 class QuickSearch extends Component {
     handleKeyDown = (e) => {
@@ -30,7 +26,7 @@ class QuickSearch extends Component {
                         <SearchIcon/>
                     </div>
                     <Field
-                        name="searchTerm"
+                        name="query"
                         component={ReduxNavTextField}
                         placeholder="Quicksearch…"
                         classes={{
@@ -52,27 +48,14 @@ QuickSearch.propTypes = {
     // via hoc
     handleSubmit: PropTypes.func.isRequired,
     // via mapStateToProps
-    results: PropTypes.array.isRequired,
-    // via mapDispatchProps
-    quickSearch: PropTypes.func.isRequired,
-    clearSearch: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
-    return {
-        results: getSearchResults(state)
-    }
+    return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        quickSearch: (query) => {
-            dispatch(quickSearch(query))
-        },
-        clearSearch: () => {
-            dispatch(clearSearch())
-        }
-    }
+    return {}
 }
 
 const formed = reduxForm({

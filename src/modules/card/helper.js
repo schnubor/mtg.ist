@@ -1,7 +1,11 @@
 import get from 'lodash/get'
+import { CARD_BACK_IMG } from './constants'
 
 export const getCardImage = (card, format = 'normal') => {
-    return get(card, `image_uris[${format}]`, 'https://musingsofalifelongnerd.files.wordpress.com/2015/01/mtg-card-back.jpg')
+    const regular = get(card, `image_uris[${format}]`)
+    if (regular) return regular
+
+    return get(card, `card_faces[0].image_uris[${format}]`, CARD_BACK_IMG)
 }
 
 export const calcBorderRadius = (width) => {

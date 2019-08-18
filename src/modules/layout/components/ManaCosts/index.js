@@ -27,6 +27,7 @@ class ManaCosts extends Component {
                     const manaIcons = card.map((cost, costIndex) => {
                         let manaCost = cost.substring(1, cost.length - 1)
                         manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
+                        manaCost = manaCost === 't' ? 'tap' : manaCost
                         const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
                         return <i key={`${cost}-${costIndex}`} className={iconClass}/>

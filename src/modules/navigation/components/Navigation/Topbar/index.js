@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { routes } from '../../../../../routes'
 // UI
 import cn from 'classnames'
 import styles from '../Navigation.module.scss'
@@ -16,7 +18,9 @@ import AppBar from '@material-ui/core/AppBar'
 
 class Topbar extends Component {
     handleSearch = (values) => {
-        console.log('search!', values)
+        const {history} = this.props
+
+        history.push(`${routes.search.main}?q=${values.query}`)
     }
 
     render () {
@@ -56,6 +60,9 @@ class Topbar extends Component {
 }
 
 Topbar.propTypes = {
+    // hoc
+    history: PropTypes.object.isRequired,
+
     // normal
     open: PropTypes.bool.isRequired,
     onMenuClick: PropTypes.func.isRequired,
@@ -70,4 +77,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Topbar)
+export default connect(mapStateToProps)(withRouter(Topbar))

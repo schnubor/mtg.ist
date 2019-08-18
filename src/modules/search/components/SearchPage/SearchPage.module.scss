@@ -1,0 +1,10 @@
+.paper {
+  padding: 24px 16px;
+  min-height: 200px;
+
+  &.flexed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

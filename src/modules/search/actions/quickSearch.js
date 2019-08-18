@@ -1,15 +1,21 @@
 import { limiter } from '../../../utils/scryfallLimiter'
 import { Cards } from 'scryfall-sdk'
 import SearchActionTypes from '../actionTypes'
+import { storeCard } from '../../card/actions/fetchCard'
 
 export const quickSearch = (query) => {
     return async (dispatch) => {
         dispatch(beginSearch())
 
         await limiter.schedule(async () => {
-            const results = []
-            for await (const result of Cards.search(query).all()) {
-                results.push(result)
+            let results = []
+            try {
+                results = await Cards.search(query).waitForAll()
+                results.forEach((card) => {
+                    dispatch(storeCard(card))
+                })
+            } catch (err) {
+                console.warn(err)
             }
 
             dispatch(finishSearch(results))

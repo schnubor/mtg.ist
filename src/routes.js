@@ -17,5 +17,8 @@ export const routes = {
     },
     card: {
         main: '/card/:id'
+    },
+    search: {
+        main: '/search'
     }
 }

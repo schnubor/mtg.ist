@@ -28,8 +28,11 @@ class CardText extends Component {
             return reactStringReplace(textPart, /\s*({.})\s*/g, (match, index) => {
                 let manaCost = match.substring(1, match.length - 1)
                 manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
+                manaCost = manaCost === 't' ? 'tap' : manaCost
 
-                return <span>&nbsp;<i key={index} className={`ms ms-cost ms-${manaCost}`}/>&nbsp;</span>
+                return <span key={`${manaCost}-${index}`}>
+                    &nbsp;<i className={`ms ms-cost ms-${manaCost}`}/>&nbsp;
+                </span>
             })
         })
     }
