@@ -5,5 +5,7 @@ export const getCardImage = (card, format = 'normal') => {
 }
 
 export const calcBorderRadius = (width) => {
-    return Math.round((width * 7) / 150)
+    const calculated = Math.round((width * 7) / 150)
+
+    return calculated >= 10 ? calculated : 10
 }
