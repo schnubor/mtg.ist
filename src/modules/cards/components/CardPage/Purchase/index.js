@@ -19,7 +19,7 @@ class Purchase extends Component {
             },
             {
                 name: 'Cardmarket',
-                link: card.purchase_uris.magiccardmarket
+                link: card.purchase_uris.cardmarket
             },
             {
                 name: 'Cardhoarder',
