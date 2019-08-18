@@ -29,7 +29,6 @@ class ManaCosts extends Component {
                     const manaIcons = card.map((cost, costIndex) => {
                         const manaCost = cost.substring(1, cost.length - 1)
                         const formattedManaCost = formatManaCosts(manaCost)
-                        console.log(formattedManaCost)
                         const iconClass = `${styles.mana} ms ms-cost ms-${formattedManaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
                         return <i key={`${cost}-${costIndex}`} className={iconClass}/>
