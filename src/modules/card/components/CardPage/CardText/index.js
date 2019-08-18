@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import reactStringReplace from 'react-string-replace'
+import { formatManaCosts } from '../../../../layout/components/ManaCosts/helper'
 // UI
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
@@ -27,11 +28,10 @@ class CardText extends Component {
         return this.oracleTextWithLinebreaks.map((textPart) => {
             return reactStringReplace(textPart, /\s*({.})\s*/g, (match, index) => {
                 let manaCost = match.substring(1, match.length - 1)
-                manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
-                manaCost = manaCost === 't' ? 'tap' : manaCost
+                const formattedManaCost = formatManaCosts(manaCost)
 
-                return <span key={`${manaCost}-${index}`}>
-                    &nbsp;<i className={`ms ms-cost ms-${manaCost}`}/>&nbsp;
+                return <span key={`${formattedManaCost}-${index}`}>
+                    &nbsp;<i className={`ms ms-cost ms-${formattedManaCost}`}/>&nbsp;
                 </span>
             })
         })
@@ -56,7 +56,9 @@ class CardText extends Component {
                     {this.cardFaces.map((face) => {
                         return <Grid item md={6} sm={12} key={face.name}>
                             {get(face, 'oracle_text', '').split('\n').map((item, key) => {
-                                return <React.Fragment key={key}>{item}<br/><br/></React.Fragment>
+                                return <React.Fragment key={key}>
+                                    {item}<br/><br/>
+                                </React.Fragment>
                             })}
                         </Grid>
                     })}

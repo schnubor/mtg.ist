@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { formatManaCosts } from './helper'
+// UI
 import styles from './ManaCosts.module.scss'
 import { Typography } from '@material-ui/core'
 
@@ -25,10 +27,10 @@ class ManaCosts extends Component {
             <React.Fragment>
                 {this.splittedCardCosts.map((card, cardIndex) => {
                     const manaIcons = card.map((cost, costIndex) => {
-                        let manaCost = cost.substring(1, cost.length - 1)
-                        manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
-                        manaCost = manaCost === 't' ? 'tap' : manaCost
-                        const iconClass = `${styles.mana} ms ms-cost ms-${manaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
+                        const manaCost = cost.substring(1, cost.length - 1)
+                        const formattedManaCost = formatManaCosts(manaCost)
+                        console.log(formattedManaCost)
+                        const iconClass = `${styles.mana} ms ms-cost ms-${formattedManaCost} ${shadow ? 'ms-shadow' : ''} ${size ? (`ms-${size}`) : ''}`
 
                         return <i key={`${cost}-${costIndex}`} className={iconClass}/>
                     })
