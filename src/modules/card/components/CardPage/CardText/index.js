@@ -29,7 +29,7 @@ class CardText extends Component {
                 let manaCost = match.substring(1, match.length - 1)
                 manaCost = isNaN(manaCost) ? manaCost.toLowerCase().replace('/', '') : manaCost
 
-                return <i key={index} className={`ms ms-cost ms-${manaCost}`}/>
+                return <span>&nbsp;<i key={index} className={`ms ms-cost ms-${manaCost}`}/>&nbsp;</span>
             })
         })
     }

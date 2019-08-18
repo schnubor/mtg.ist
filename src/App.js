@@ -11,7 +11,7 @@ import PrivateRoute from './modules/auth/components/PrivateRoute'
 import LoginPage from './modules/auth/components/LoginPage'
 import DashboardPage from './modules/dashboard/components/DashboardPage'
 import CatalogPage from './modules/catalog/components/CatalogPage'
-import CardPage from './modules/cards/components/CardPage'
+import CardPage from './modules/card/components/CardPage'
 
 class App extends React.Component {
     render () {

@@ -1,13 +1,7 @@
-import Bottleneck from 'bottleneck'
 import { Cards } from 'scryfall-sdk'
 import CardActionTypes from '../actionTypes'
 import { getCardById } from '../selectors'
-
-// Limiter for Scryfall (
-const limiter = new Bottleneck({
-    minTime: 75,
-    maxConcurrent: 1,
-})
+import { limiter } from '../../../utils/scryfallLimiter'
 
 export const fetchCardById = (id) => {
     return async (dispatch, getState) => {
@@ -16,10 +10,8 @@ export const fetchCardById = (id) => {
 
         if (!card) {
             card = await limiter.schedule(() => Cards.byId(id))
-            dispatch(storeCard(card))
+            return dispatch(storeCard(card))
         }
-
-        return card
     }
 }
 

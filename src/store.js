@@ -4,8 +4,12 @@ import { firebaseReducer } from 'react-redux-firebase'
 import { firestoreReducer } from 'redux-firestore'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
+// Modules
+import * as cardConstants from './modules/card/constants'
+import * as searchConstants from './modules/search/constants'
 // Reducers
-import cardsReducer from './modules/cards/reducer'
+import cardReducer from './modules/card/reducer'
+import searchReducer from './modules/search/reducer'
 
 // Enhance with dev tools
 let composeEnhancers = composeWithDevTools({
@@ -23,7 +27,8 @@ middlewares.push(thunkMiddleware)
 const rootReducer = combineReducers(
     {
         // ...your other reducers here
-        cards: cardsReducer,
+        [cardConstants.NAME]: cardReducer,
+        [searchConstants.NAME]: searchReducer,
         firebase: firebaseReducer,
         firestore: firestoreReducer,
         form: formReducer,

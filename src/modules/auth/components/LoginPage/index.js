@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom'
 import { withFirebase } from 'react-redux-firebase'
 // UI
 import styles from './main.module.scss'
-import Card from '../../../cards/components/Card'
+import Card from '../../../card/components/Card'
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'

@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import Spacing from '../../../layout/components/Spacing'
 import Grid from '@material-ui/core/Grid'
-import Card from '../../../cards/components/Card'
+import Card from '../../../card/components/Card'
 import Paper from '@material-ui/core/Paper'
 
 class LatestCards extends Component {
