@@ -17,6 +17,12 @@ export const quickSearch = (query) => {
     }
 }
 
+export const clearSearch = () => {
+    return {
+        type: SearchActionTypes.SEARCH_CLEAR
+    }
+}
+
 const beginSearch = () => {
     return {
         type: SearchActionTypes.BEGIN_SEARCH

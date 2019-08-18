@@ -7,36 +7,42 @@ import styles from './QuickSearch.module.scss'
 import SearchIcon from '@material-ui/icons/Search'
 import ReduxNavTextField from '../../../reduxForm/components/NavTextField'
 // Actions
-import { quickSearch } from '../../actions/quickSearch'
+import { clearSearch, quickSearch } from '../../actions/quickSearch'
 // Selectors
+import { getSearchResults } from '../../selectors'
 
 class QuickSearch extends Component {
-    handleChange = (e, newValue) => {
-        const {quickSearch} = this.props
+    handleKeyDown = (e) => {
+        const {handleSubmit} = this.props
 
-        if (newValue.length > 3) {
-            quickSearch(newValue)
+        if (e.key === 'Enter' && e.shiftKey === false) {
+            e.preventDefault()
+            e.stopPropagation()
+            handleSubmit()
         }
     }
 
     render () {
         return (
-            <div className={styles.search}>
-                <div className={styles.searchIcon}>
-                    <SearchIcon/>
+            <form onKeyDown={this.handleKeyDown}>
+                <div className={styles.search}>
+                    <div className={styles.searchIcon}>
+                        <SearchIcon/>
+                    </div>
+                    <Field
+                        name="searchTerm"
+                        component={ReduxNavTextField}
+                        placeholder="Quicksearch…"
+                        classes={{
+                            root: styles.inputRoot,
+                            input: styles.inputInput,
+                        }}
+                        inputProps={{'aria-label': 'search'}}
+                        onKeyDown={this.handleKeyDown}
+                        onChange={this.handleChange}
+                    />
                 </div>
-                <Field
-                    name="searchTerm"
-                    component={ReduxNavTextField}
-                    placeholder="Quicksearch…"
-                    classes={{
-                        root: styles.inputRoot,
-                        input: styles.inputInput,
-                    }}
-                    inputProps={{'aria-label': 'search'}}
-                    onChange={this.handleChange}
-                />
-            </div>
+            </form>
         )
     }
 }
@@ -44,18 +50,27 @@ class QuickSearch extends Component {
 QuickSearch.propTypes = {
     // via "normal" props
     // via hoc
+    handleSubmit: PropTypes.func.isRequired,
     // via mapStateToProps
+    results: PropTypes.array.isRequired,
     // via mapDispatchProps
+    quickSearch: PropTypes.func.isRequired,
+    clearSearch: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        results: getSearchResults(state)
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         quickSearch: (query) => {
             dispatch(quickSearch(query))
+        },
+        clearSearch: () => {
+            dispatch(clearSearch())
         }
     }
 }

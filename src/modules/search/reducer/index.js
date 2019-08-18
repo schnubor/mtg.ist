@@ -19,6 +19,8 @@ export default (state = initialState, action) => {
                 searching: false,
                 results: action.payload.results
             }
+        case SearchActionTypes.SEARCH_CLEAR:
+            return initialState
         default:
             return state
     }

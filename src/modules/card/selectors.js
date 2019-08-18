@@ -1,4 +1,3 @@
-import get from 'lodash/get'
+import { NAME } from './constants'
 
-export const getCardById = (state, id) => state.cards[id]
-export const getCardImagesById = (state, id) => get(state, 'cards[id].image_uris', {})
+export const getCardById = (state, id) => state[NAME][id]

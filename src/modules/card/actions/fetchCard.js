@@ -15,7 +15,7 @@ export const fetchCardById = (id) => {
     }
 }
 
-const storeCard = (card) => {
+export const storeCard = (card) => {
     return {
         type: CardActionTypes.STORE_CARD,
         payload: {card}

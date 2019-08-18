@@ -15,6 +15,10 @@ import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 
 class Topbar extends Component {
+    handleSearch = (values) => {
+        console.log('search!', values)
+    }
+
     render () {
         const {open, onMenuClick, auth} = this.props
 
@@ -37,7 +41,7 @@ class Topbar extends Component {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <QuickSearch/>
+                    <QuickSearch onSubmit={this.handleSearch}/>
                     <div className={styles.grow}/>
                     <Hidden smDown>
                         <Typography className={styles.username}>
