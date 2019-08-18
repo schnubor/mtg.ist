@@ -61,7 +61,7 @@ class SearchPage extends Component {
                     <Loading loading={searching}>
                         {results.length > 0 && <React.Fragment>
                             <Typography variant="h5">
-                                Found {results.length} cards containing "{extractQueryFromLocation(location)}"
+                                Found {results.length} {results.length === 1 ? 'card' : 'cards'} containing "{extractQueryFromLocation(location)}"
                             </Typography>
                             <Divider/>
                             <Spacing size="lg"/>
