@@ -1,0 +1,22 @@
+.paper {
+  padding: 24px 16px;
+  margin-bottom: 24px;
+}
+
+.badge {
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  &.legal {
+    background-color: rgba(54, 108, 54, 0.8);
+  }
+
+  &.not_legal {
+    background-color: rgba(0, 0, 0, 0.22);
+  }
+
+  .text {
+    color: white;
+  }
+}
