@@ -9,7 +9,7 @@
     "classnames": "^2.2.6",
     "firebase": "^6.3.5",
     "firebaseui": "^4.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mana-font": "^1.4.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.2",
